@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36511.14 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UESAN.Ecommerce.API", "UESAN.Ecommerce.API\UESAN.Ecommerce.API.csproj", "{A2E72F95-86CC-4042-BEB1-7F1D8637F3E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UESAN.Ecommerce.CORE", "UESAN.Ecommerce.CORE\UESAN.Ecommerce.CORE.csproj", "{84865D2F-49A4-42B0-A86A-2571315AB216}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2E72F95-86CC-4042-BEB1-7F1D8637F3E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2E72F95-86CC-4042-BEB1-7F1D8637F3E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2E72F95-86CC-4042-BEB1-7F1D8637F3E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2E72F95-86CC-4042-BEB1-7F1D8637F3E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84865D2F-49A4-42B0-A86A-2571315AB216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84865D2F-49A4-42B0-A86A-2571315AB216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84865D2F-49A4-42B0-A86A-2571315AB216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84865D2F-49A4-42B0-A86A-2571315AB216}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FBEECD1A-8589-4C59-BA6A-D9E5080BED09}
+	EndGlobalSection
+EndGlobal
