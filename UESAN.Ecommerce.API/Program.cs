@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using UESAN.Ecommerce.CORE.Core.Interfaces;
+using UESAN.Ecommerce.CORE.Core.Services;
 using UESAN.Ecommerce.CORE.Infrastructure.Data;
 using UESAN.Ecommerce.CORE.Infrastructure.Repositories;
 
@@ -10,7 +11,7 @@ var _configuration = builder.Configuration;
 var connectionString = _configuration.GetConnectionString("DevConnection");
 
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
-
+builder.Services.AddTransient<ICategoryService, CategoryService>();
 
 
 builder.Services.AddDbContext<StoreDbContext>(

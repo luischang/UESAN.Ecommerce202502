@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UESAN.Ecommerce.CORE.Core.DTOs;
 using UESAN.Ecommerce.CORE.Core.Interfaces;
 
 namespace UESAN.Ecommerce.API.Controllers
@@ -8,24 +9,25 @@ namespace UESAN.Ecommerce.API.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly ICategoryRepository _categoryRepository;
+        //private readonly ICategoryRepository _categoryRepository;
+        private readonly ICategoryService _categoryService;
 
-        public CategoryController(ICategoryRepository categoryRepository)
+        public CategoryController(ICategoryService categoryService)
         {
-            _categoryRepository = categoryRepository;
+            _categoryService = categoryService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetCategories()
         {
-            var categories = await _categoryRepository.GetCategories();
+            var categories = await _categoryService.GetAllCategories();
             return Ok(categories);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCategoryById(int id)
         {
-            var category = await _categoryRepository.GetCategoryById(id);
+            var category = await _categoryService.GetCategoryById(id);
             if (category == null)
             {
                 return NotFound();
@@ -35,43 +37,43 @@ namespace UESAN.Ecommerce.API.Controllers
 
         [HttpPost]
         public async Task<IActionResult> CreateCategory(
-            [FromBody] CORE.Core.Entities.Category category)
+            [FromBody] CategoryCreateDTO categoryCreateDTO)
         {
             if (category == null)
             {
                 return BadRequest();
             }
-            var newCategoryId = await _categoryRepository.InsertCategory(category);
+            var newCategoryId = await _categoryService.InsertCategory(categoryCreateDTO);
             return CreatedAtAction(nameof(GetCategoryById), 
-                new { id = newCategoryId }, category);
+                new { id = newCategoryId }, categoryCreateDTO);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
-            var category = await _categoryRepository.GetCategoryById(id);
+            var category = await _categoryService.GetCategoryById(id);
             if (category == null)
             {
                 return NotFound();
             }
-            await _categoryRepository.DeleteCategory(id);
+            await _categoryService.DeleteCategory(id);
             return NoContent();
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCategory(int id
-            , [FromBody] CORE.Core.Entities.Category category)
+            , [FromBody] CategoryListDTO categoryListDTO)
         {
-            if (category == null || category.Id != id)
+            if (categoryListDTO == null || categoryListDTO.Id != id)
             {
                 return BadRequest();
             }
-            var existingCategory = await _categoryRepository.GetCategoryById(id);
+            var existingCategory = await _categoryService.GetCategoryById(id);
             if (existingCategory == null)
             {
                 return NotFound();
             }
-            await _categoryRepository.UpdateCategory(category);
+            await _categoryService.UpdateCategory(categoryListDTO);
             return NoContent();
         }
     }
