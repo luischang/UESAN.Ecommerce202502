@@ -39,7 +39,7 @@ namespace UESAN.Ecommerce.API.Controllers
         public async Task<IActionResult> CreateCategory(
             [FromBody] CategoryCreateDTO categoryCreateDTO)
         {
-            if (category == null)
+            if (categoryCreateDTO == null)
             {
                 return BadRequest();
             }
