@@ -10,8 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 var _configuration = builder.Configuration;
 var connectionString = _configuration.GetConnectionString("DevConnection");
 
-builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
-builder.Services.AddTransient<ICategoryService, CategoryService>();
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddTransient<IProductService, ProductService>();
 
 
 builder.Services.AddDbContext<StoreDbContext>(
