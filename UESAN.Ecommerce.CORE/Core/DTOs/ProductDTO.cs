@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace UESAN.Ecommerce.CORE.Core.DTOs
 {
-    public class CategoryDTO
+    public class ProductDTO
     {
         public int Id { get; set; }
         public string? Description { get; set; }
         public bool? IsActive { get; set; }
     }
-    public class CategoryCreateDTO
+    public class ProductCreateDTO
     {
         public string? Description { get; set; }       
     }
-    public class CategoryListDTO
+    public class ProductListDTO
     {
         public int Id { get; set; }
         public string? Description { get; set; }
