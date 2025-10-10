@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using UESAN.Ecommerce.CORE.Core.Entities;
 using UESAN.Ecommerce.CORE.Core.Interfaces;
 using UESAN.Ecommerce.CORE.Infrastructure.Data;
+//using System.Data.StoreDbContext;
+
 
 namespace UESAN.Ecommerce.CORE.Infrastructure.Repositories
 {
@@ -78,6 +80,7 @@ namespace UESAN.Ecommerce.CORE.Infrastructure.Repositories
             if (productExist != null)
             {
                 productExist.Description = product.Description;
+                productExist.UnitPrice = product.UnitPrice;
                 productExist.IsActive = product.IsActive;
 
                 await _context.SaveChangesAsync();

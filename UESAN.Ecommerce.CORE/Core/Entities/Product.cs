@@ -9,11 +9,11 @@ public partial class Product
 
     public string? Description { get; set; }
 
+    public decimal? UnitPrice { get; set; }
+
     public string? ImageUrl { get; set; }
 
     public int? Stock { get; set; }
-
-    public decimal? Price { get; set; }
 
     public int? Discount { get; set; }
 

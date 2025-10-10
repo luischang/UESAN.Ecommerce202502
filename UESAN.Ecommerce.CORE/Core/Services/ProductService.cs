@@ -28,6 +28,7 @@ namespace UESAN.Ecommerce.CORE.Core.Services
                 var productDTO = new ProductListDTO();
                 productDTO.Id = product.Id;
                 productDTO.Description = product.Description;
+                productDTO.UnitPrice = product.UnitPrice;
                 productDTOS.Add(productDTO);
             }
 
@@ -44,6 +45,7 @@ namespace UESAN.Ecommerce.CORE.Core.Services
             var productDTO = new ProductListDTO();
             productDTO.Id = product.Id;
             productDTO.Description = product.Description;
+            productDTO.UnitPrice = product.UnitPrice;
 
             return productDTO;
         }
@@ -52,7 +54,8 @@ namespace UESAN.Ecommerce.CORE.Core.Services
         {
             var product = new Product();
             product.Description = productCreateDTO.Description;
-            product.IsActive = true;  // Por defecto, al crear una categoría, se establece como activa.
+            product.UnitPrice = productCreateDTO.UnitPrice;
+            product.IsActive = true;  // Por defecto, al crear un Product, se establece como activa.
             var newProductId = await _productRepository.InsertProduct(product);
             return newProductId;
         }
@@ -62,6 +65,7 @@ namespace UESAN.Ecommerce.CORE.Core.Services
             var product = new Product();
             product.Id = productListDTO.Id;
             product.Description = productListDTO.Description;
+            product.UnitPrice = productListDTO.UnitPrice;
             await _productRepository.UpdateProduct(product);
         }
 
