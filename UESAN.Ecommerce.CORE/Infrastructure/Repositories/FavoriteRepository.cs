@@ -21,7 +21,11 @@ namespace UESAN.Ecommerce.CORE.Infrastructure.Repositories
 
         public async Task<IEnumerable<Favorite>> GetFavorites()
         {
-            return await _context.Favorite.ToListAsync();
+            return await _context
+                .Favorite
+                .Include(p => p.Product)
+                .Include(u => u.User)
+                .ToListAsync();
         }
 
         public async Task<Favorite?> GetFavoriteById(int id)
