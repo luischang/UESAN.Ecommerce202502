@@ -12,6 +12,8 @@ var connectionString = _configuration.GetConnectionString("DevConnection");
 
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
+builder.Services.AddTransient<IFavoriteRepository, FavoriteRepository>();
+builder.Services.AddTransient<IFavoriteService, FavoriteService>();
 
 
 builder.Services.AddDbContext<StoreDbContext>(
