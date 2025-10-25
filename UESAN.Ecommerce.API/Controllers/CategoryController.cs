@@ -19,8 +19,7 @@ namespace UESAN.Ecommerce.API.Controllers
             _categoryService = categoryService;
         }
 
-        [HttpGet]
-        [AllowAnonymous]
+        [HttpGet]        
         public async Task<IActionResult> GetCategories()
         {
             var categories = await _categoryService.GetAllCategories();
